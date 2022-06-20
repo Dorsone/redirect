@@ -33,4 +33,14 @@ class User extends Model
         return $this->hasMany(Link::class);
     }
 
+    /**
+     * Relation with Message Model
+     *
+     * @return HasMany
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class);
+    }
+
 }

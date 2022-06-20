@@ -38,8 +38,8 @@ class Link extends Model
      *
      * @return HasOne
      */
-    public function linkType(): HasOne
+    public function type(): HasOne
     {
-        return $this->hasOne(LinkType::class);
+        return $this->hasOne(LinkType::class, 'id', 'link_type_id');
     }
 }
