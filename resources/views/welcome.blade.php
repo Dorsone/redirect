@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
-<body>
+<body style="background: #333333 url({{asset('bg.jpg')}});">
 <video autoplay muted loop id="background-video">
     <source src="{{asset('wallpaper.mov')}}" type="video/mp4">
 </video>
@@ -21,48 +21,37 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="contact-wrap w-100 p-md-5 p-4 py-5">
                             <h3 class="mb-4">Write us</h3>
-                            @if(session('sent'))
-                                <div id="form-message-success" class="mb-4" style="display: block;">
-                                    Your message was sent, thank you!
-                                </div>
-                            @endif
+                            <div id="form-message-success" class="mb-4" style="display: block;">
+                                Your message was sent, thank you!
+                            </div>
                             <form method="POST" action="#" id="contactForm" name="contactForm" class="contactForm">
-                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="name" id="name"
                                                    placeholder="Name">
-                                            @error('name')
-                                            <label id="name-error" class="error" for="name">{{__($message)}}</label>
-                                            @enderror
+                                            <label id="name-error" class="error" for="name">Error name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input type="email" class="form-control" name="email" id="email"
                                                    placeholder="Email">
-                                            @error('email')
-                                            <label id="name-error" class="error" for="name">{{__($message)}}</label>
-                                            @enderror
+                                            <label id="name-error" class="error" for="name">Error name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="subject" id="subject"
                                                    placeholder="Subject">
-                                            @error('subject')
-                                            <label id="name-error" class="error" for="name">{{__($message)}}</label>
-                                            @enderror
+                                            <label id="name-error" class="error" for="name">Error name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <textarea name="message" class="form-control" id="message" cols="30"
                                                       rows="6" placeholder="Message"></textarea>
-                                            @error('message')
-                                            <label id="name-error" class="error" for="name">{{__($message)}}</label>
-                                            @enderror
+                                            <label id="name-error" class="error" for="name">Error name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
