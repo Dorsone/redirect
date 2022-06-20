@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('{userLogin}', [HomeController::class, 'userIndex'])->name('user.index');
+Route::get('{user:login}', [HomeController::class, 'userIndex'])->name('user.index');
 Route::post('{user}/send', [HomeController::class, 'sendMessage'])->name('send.message');

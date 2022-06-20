@@ -17,12 +17,11 @@ class HomeController extends Controller
     /**
      * The index page, where returns the view with full user's info
      *
-     * @param $userLogin
+     * @param User $user
      * @return Factory|View|Application
      */
-    public function userIndex($userLogin): Factory|View|Application
+    public function userIndex(User $user): Factory|View|Application
     {
-        $user = User::query()->where('login', $userLogin)->first();
         return view('welcome', compact('user'));
     }
 
