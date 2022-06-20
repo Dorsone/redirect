@@ -21,37 +21,44 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="contact-wrap w-100 p-md-5 p-4 py-5">
                             <h3 class="mb-4">Write us</h3>
-                            <div id="form-message-success" class="mb-4" style="display: block;">
-                                Your message was sent, thank you!
-                            </div>
-                            <form method="POST" action="#" id="contactForm" name="contactForm" class="contactForm">
+                            @if(session()->get('sent'))
+                                <div id="form-message-success" class="mb-4" style="display: block;">
+                                    Your message was sent, thank you!
+                                </div>
+                            @endif
+                            <form method="POST" action="{{route('send.message', $user->id)}}" id="contactForm" name="contactForm" class="contactForm">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="name" id="name"
-                                                   placeholder="Name">
-                                            <label id="name-error" class="error" for="name">Error name</label>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                            @error('name')
+                                                <label id="name-error" class="error" for="name">{{__($message)}}</label>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                   placeholder="Email">
-                                            <label id="name-error" class="error" for="name">Error name</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                            @error('email')
+                                                <label id="name-error" class="error" for="name">{{__($message)}}</label>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="subject" id="subject"
-                                                   placeholder="Subject">
-                                            <label id="name-error" class="error" for="name">Error name</label>
+                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                            @error('subject')
+                                                <label id="name-error" class="error" for="name">{{__($message)}}</label>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea name="message" class="form-control" id="message" cols="30"
-                                                      rows="6" placeholder="Message"></textarea>
-                                            <label id="name-error" class="error" for="name">Error name</label>
+                                            <textarea name="message" class="form-control" id="message" cols="30" rows="6" placeholder="Message"></textarea>
+                                            @error('message')
+                                                <label id="name-error" class="error" for="name">{{__($message)}}</label>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">

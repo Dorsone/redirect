@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('{userLogin}', [HomeController::class, 'userIndex'])->name('user.index');
+Route::post('{user}/send', [HomeController::class, 'sendMessage'])->name('send.message');
