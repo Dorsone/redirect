@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\LinkType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,10 +19,11 @@ class LinkFactory extends Factory
     public function definition(): array
     {
         $user = User::query()->inRandomOrder()->first();
+        $linkType = LinkType::query()->inRandomOrder()->first();
         return [
             'name' => $this->faker->word(),
             'link' => $this->faker->url(),
-            'image' => $this->faker->imageUrl(),
+            'link_type_id' => $linkType->id,
             'user_id' => $user->id,
         ];
     }
