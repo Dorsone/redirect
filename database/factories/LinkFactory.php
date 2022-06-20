@@ -22,7 +22,7 @@ class LinkFactory extends Factory
         $linkType = LinkType::query()->inRandomOrder()->first();
         return [
             'name' => $this->faker->word(),
-            'link' => $this->faker->url(),
+            'link' => $this->faker->word(),
             'link_type_id' => $linkType->id,
             'user_id' => $user->id,
         ];
