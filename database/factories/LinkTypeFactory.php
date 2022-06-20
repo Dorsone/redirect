@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Icon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,9 +17,10 @@ class LinkTypeFactory extends Factory
      */
     public function definition(): array
     {
+        $icon = Icon::query()->inRandomOrder()->first();
         return [
             'name' => $this->faker->unique()->word(),
-            'image' => $this->faker->imageUrl(),
+            'icon_id' => $icon->id,
             'domain' => $this->faker->unique()->domainName(),
         ];
     }

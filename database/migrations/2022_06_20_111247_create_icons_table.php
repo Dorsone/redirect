@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('link_types', function (Blueprint $table) {
+        Schema::create('icons', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('icon_id');
-            $table->string('domain')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link_types');
+        Schema::dropIfExists('icons');
     }
 };

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class LinkType extends Model
 {
@@ -29,5 +30,15 @@ class LinkType extends Model
     public function links(): HasMany
     {
         return $this->hasMany(Link::class);
+    }
+
+    /**
+     * Relation with Icon Model
+     *
+     * @return HasOne
+     */
+    public function icon(): HasOne
+    {
+        return $this->hasOne(Icon::class);
     }
 }
