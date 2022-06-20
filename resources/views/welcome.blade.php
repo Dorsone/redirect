@@ -78,8 +78,7 @@
                             @foreach($user->links as $link)
                                 <div class="dbox w-100 d-flex align-items-center">
                                     <div class="icon d-flex align-items-center justify-content-center">
-{{--                                    <img width="48" height="48" style="border-radius: 50%" src="" alt="Logo">--}}
-                                        <span class="fa-solid fa-{{$link->type->image}}"></span>
+                                        <span class="fa-brands fa-{{$link->type->icon->name}}"></span>
                                     </div>
                                     <div class="text pl-3">
                                         <p><span>{{$link->type->name}}:</span> <a target="_blank" href="https://{{$link->type->domain}}/{{$link->link}}">{{$link->link}}</a></p>

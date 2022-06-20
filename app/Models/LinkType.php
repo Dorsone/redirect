@@ -39,6 +39,6 @@ class LinkType extends Model
      */
     public function icon(): HasOne
     {
-        return $this->hasOne(Icon::class);
+        return $this->hasOne(Icon::class, 'id', 'icon_id');
     }
 }
